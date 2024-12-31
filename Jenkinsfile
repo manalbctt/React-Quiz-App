@@ -1,8 +1,8 @@
 pipeline {
     agent any
     environment {
-        DOCKER_HUB_USER = credentials('docker-hub-username')
-        DOCKER_HUB_PASS = credentials('docker-hub-password')
+        DOCKER_HUB_USER = credentials('manal403')
+        DOCKER_HUB_PASS = credentials('Manalmanal77')
     }
     stages {
        stage('Clone du Projet') {
