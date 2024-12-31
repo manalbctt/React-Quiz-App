@@ -5,11 +5,12 @@ pipeline {
         DOCKER_HUB_PASS = 'Manalmanal77'
     }
     stages {
-        stage('Clone du Projet') {
+       stage('Clone du Projet') {
             steps {
-                git url: 'https://github.com/manalbctt/React-Quiz-App.git'
-            }
-        }
+                git branch: 'main', url: 'https://github.com/manalbctt/React-Quiz-App.git'
+    }
+}
+
         stage('Sonar Analysis') {
             steps {
                 withSonarQubeEnv('SonarQube') {
