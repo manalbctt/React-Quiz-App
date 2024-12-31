@@ -7,33 +7,29 @@ pipeline {
     stages {
         stage('Clone du Projet') {
             steps {
-                git url: 'https://github.com/manal403/React-Quiz-App.git'
+                git url: 'https://github.com/manalbctt/React-Quiz-App.git'
             }
         }
-
         stage('Sonar Analysis') {
             steps {
                 withSonarQubeEnv('SonarQube') {
                     sh 'npm install'
                     sh 'npm run build'
-                    sh 'npm run sonar'  // Assuming you have a sonar script in package.json
+                    sh 'npm run sonar'
                 }
             }
         }
-
         stage('Build') {
             steps {
                 sh 'npm install'
                 sh 'npm run build'
             }
         }
-
         stage('Build Docker Image') {
             steps {
                 sh 'docker build -t react-quiz-app .'
             }
         }
-
         stage('Push Docker Image') {
             steps {
                 script {
@@ -44,7 +40,6 @@ pipeline {
                 }
             }
         }
-
         stage('Deploy and Start Docker Container') {
             steps {
                 sh '''
@@ -55,7 +50,6 @@ pipeline {
             }
         }
     }
-
     post {
         success {
             echo 'Pipeline exécuté avec succès 🚀'
