@@ -19,7 +19,7 @@ pipeline {
                     npx sonar-scanner \
                         -Dsonar.projectKey=react-quiz-app \
                         -Dsonar.sources=. \
-                        -Dsonar.host.url=http://localhost:9000 \
+                        -Dsonar.host.url=http://sonarqube:9000 \
                         -Dsonar.login=squ_a14cbbdcfc21d9c07a0b9e3334c4da34702ae11a
                     '''
                 }
